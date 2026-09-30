@@ -9,7 +9,8 @@ import {
   type MotionValue,
 } from 'framer-motion'
 import { JoinLink } from './ui/JoinLink'
-import { HERO_PILLS } from '../config/content'
+import { HERO_PILLS, HERO_PHOTOS } from '../config/content'
+import { HeroPhotos } from './ui/HeroPhotos'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -169,7 +170,6 @@ export default function Hero() {
           </div>
 
           <motion.div
-            aria-hidden="true"
             onMouseMove={(e) => {
               if (reduce) return
               const r = e.currentTarget.getBoundingClientRect()
@@ -185,17 +185,21 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.55, ease: EASE }}
             className="relative aspect-[462/299] border-[1.5px] border-ink bg-[#d5d4d9]"
           >
-            <svg
-              className="absolute top-1/2 left-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 opacity-30"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <rect x="3" y="4" width="18" height="16" rx="3" />
-              <circle cx="9" cy="10" r="1.6" />
-              <path d="M4 18l5-5 4 4 3-3 4 4" />
-            </svg>
+            {HERO_PHOTOS.length > 0 ? (
+              <HeroPhotos />
+            ) : (
+              <svg
+                className="absolute top-1/2 left-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 opacity-30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <rect x="3" y="4" width="18" height="16" rx="3" />
+                <circle cx="9" cy="10" r="1.6" />
+                <path d="M4 18l5-5 4 4 3-3 4 4" />
+              </svg>
+            )}
             {HERO_PILLS.map((p, idx) => (
               <Pill key={p.label} p={p} idx={idx} sx={sx} sy={sy} />
             ))}

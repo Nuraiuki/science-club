@@ -9,6 +9,13 @@ export const HERO_PILLS = [
   { label: 'Startups', left: '7%', top: '80%', rotate: 6 },
 ] as const
 
+/** Слайдшоу в hero. pos — object-position, чтобы в кадре оставались лица. */
+export const HERO_PHOTOS = [
+  { src: '/images/hero-kickoff.webp', pos: '50% 45%', alt: 'Science Club kick-off' },
+  { src: '/images/hero-teal.webp', pos: '50% 42%', alt: 'Science Club community meetup' },
+  { src: '/images/hero-abc.webp', pos: '50% 50%', alt: 'Science Club at ABC Weekend Astana' },
+]
+
 export const ROLES = [
   'SMM Specialist',
   'PR & Communications',
@@ -48,7 +55,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Workshops',
     title: 'Peer-to-Peer\nWorkshops',
     text: 'Learn Git, Case Studies, Web Dev. Students sharing knowledge with students.',
-    image: '',
+    image: '/images/community-git.webp',
     flow: ['Student', 'Workshop', 'Community'],
     flowSep: '→',
   },
@@ -57,7 +64,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Meetups',
     title: 'Expert\nMeetups',
     text: 'Meet founders, engineers, and entrepreneurs building the future.',
-    image: '',
+    image: '/images/hero-teal.webp',
     flow: ['Talk', 'Q&A', 'Networking'],
     flowSep: '→',
   },
@@ -66,7 +73,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Process',
     title: 'From Idea\nto Sales',
     text: "Don't stop at an idea. Research, build MVP, test, pitch and sell.",
-    image: '',
+    image: '/images/community-main.webp',
     flow: ['Idea', 'MVP', 'Pitch', 'Sales'],
     flowSep: '•',
     flowGap: 7,
@@ -76,7 +83,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Projects',
     title: 'Creative\nProjects',
     text: 'Interactive websites, QR quests, and digital experiences for campus.',
-    image: '',
+    image: '/images/community-laptop.webp',
     button: { label: 'View Projects', href: '#projects' },
   },
   {
@@ -84,7 +91,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Competition',
     title: 'Internal\nHackathons',
     text: 'Build. Compete. Solve. Transform ideas into prototypes in 48 hours.',
-    image: '',
+    image: '/images/community-hacknu.webp',
     flow: ['Team', 'Idea', 'Build', 'Pitch'],
     flowSep: '→',
   },
@@ -93,7 +100,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Communication',
     title: 'Public\nSpeaking',
     text: 'A great idea is only useful if you can communicate it. Pitch like a pro.',
-    image: '',
+    image: '/images/moment-presenter.webp',
     flow: ['Storytelling', 'Pitching', 'Audit'],
     flowSep: '—',
     flowGap: 8,
@@ -103,7 +110,7 @@ export const ACTIVITIES: Activity[] = [
     tag: 'Careers',
     title: 'Startup\nInternships',
     text: 'Get experience beyond the classroom. Work directly with partner startups.',
-    image: '',
+    image: '/images/hero-abc.webp',
     accent: true,
   },
 ]
@@ -153,11 +160,19 @@ export const PROJECTS = [
 ]
 
 export const COMMUNITY_TILES = [
-  { label: 'Main Event Space', bg: '#282a2e', text: '#5f6066', image: '' },
-  { label: 'Late Night Build', bg: '#414248', text: '#9a9aa2', image: '' },
-  { label: 'Pitch Practice', bg: '#53545d', text: '#a8a9b0', image: '' },
-  { label: 'Workshop Log', bg: '#72737b', text: '#b9bac1', image: '' },
-  { label: 'Social Mixer', bg: '#a0a1aa', text: '#7b7c85', image: '' },
+  { label: 'Main Event Space', bg: '#282a2e', text: '#5f6066', image: '/images/community-main.webp', pos: '50% 40%' },
+  { label: 'Late Night Build', bg: '#414248', text: '#9a9aa2', image: '/images/community-laptop.webp', pos: '50% 60%' },
+  { label: 'Pitch Practice', bg: '#53545d', text: '#a8a9b0', image: '/images/community-speaker.webp', pos: '40% 50%' },
+  { label: 'Workshop Log', bg: '#72737b', text: '#b9bac1', image: '/images/community-git.webp', pos: '25% 50%' },
+  { label: 'Social Mixer', bg: '#a0a1aa', text: '#7b7c85', image: '/images/community-hacknu.webp', pos: '50% 50%' },
+]
+
+/** Лента «моментов» под галереей. ratio = ширина / высота. Новые фото просто добавляй сюда. */
+export const MOMENTS = [
+  { src: '/images/moment-audience-1.webp', ratio: 1.688, alt: 'Students listening at a Science Club talk' },
+  { src: '/images/moment-presenter.webp', ratio: 0.674, alt: 'Workshop: Anatomy of the Web' },
+  { src: '/images/moment-panel.webp', ratio: 1.096, alt: 'Students at a Science Club session' },
+  { src: '/images/moment-audience-2.webp', ratio: 1.78, alt: 'Q&A at a Science Club meetup' },
 ]
 
 /** wide: ячейка на всю ширину строки (для 7-го элемента). */
