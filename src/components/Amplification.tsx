@@ -1,9 +1,35 @@
-import { useRef, useState } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { AMPLIFY_ITEMS, AMPLIFY_TAGS } from '../config/content'
 import { Reveal } from './ui/Reveal'
 import { RevealLines } from './ui/RevealLines'
 import { ScrambleText } from './ui/ScrambleText'
+
+/** Видео в плитке: играет, только пока плитка в экране; при «уменьшить движение» остаётся кадр-постер. */
+function TileVideo({ src, poster }: { src: string; poster?: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  const inView = useInView(ref, { margin: '0px 0px -10% 0px' })
+  const reduce = useReducedMotion()
+  useEffect(() => {
+    const v = ref.current
+    if (!v) return
+    if (inView && !reduce) v.play().catch(() => {})
+    else v.pause()
+  }, [inView, reduce])
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      aria-hidden="true"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  )
+}
 
 const TILES = [
   { bg: '#282828', offset: false, col: 0 },
@@ -106,7 +132,24 @@ export default function Amplification() {
                       transform: touched && on ? 'scale(1.03)' : 'none',
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent" />
+                    {item.media?.video ? (
+                      <TileVideo src={item.media.video} poster={item.media.poster} />
+                    ) : item.media?.image ? (
+                      <img
+                        src={item.media.image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    ) : null}
+                    <div
+                      className={`absolute inset-0 ${
+                        item.media
+                          ? 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
+                          : 'bg-gradient-to-br from-white/[0.04] to-transparent'
+                      }`}
+                    />
                     <span
                       className={`mono absolute bottom-[22px] left-[14px] text-[10px] tracking-[0.1em] text-white transition-all duration-500 ${
                         on ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'

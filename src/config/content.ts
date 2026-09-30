@@ -115,8 +115,19 @@ export const ACTIVITIES: Activity[] = [
   },
 ]
 
-export const AMPLIFY_ITEMS = [
-  { label: 'Content', tile: 'Content Squad' },
+/** media: видео или фото в плитке (video mp4 H.264 без звука, poster обязателен, image для обычного фото). */
+export type AmplifyItem = {
+  label: string
+  tile: string
+  media?: { video?: string; poster?: string; image?: string }
+}
+
+export const AMPLIFY_ITEMS: AmplifyItem[] = [
+  {
+    label: 'Content',
+    tile: 'Content Squad',
+    media: { video: '/videos/content-reel.mp4', poster: '/videos/content-reel.webp' },
+  },
   { label: 'Social Media', tile: 'Social Squad' },
   { label: 'PR & Promotion', tile: 'PR Squad' },
   { label: 'Storytelling', tile: 'Story Squad' },
