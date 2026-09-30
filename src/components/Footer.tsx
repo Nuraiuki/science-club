@@ -1,5 +1,6 @@
 import { SITE, linkProps } from '../config/site'
 import Marquee from './Marquee'
+import { LogoMark } from './ui/LogoMark'
 
 const YEAR = new Date().getFullYear()
 
@@ -17,7 +18,8 @@ export default function Footer() {
       <div className="wrap-m pt-[83px] pb-[60px]">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[minmax(0,570px)_286px_232px] lg:gap-0">
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="font-jakarta text-[26px] leading-none font-extrabold tracking-[-0.05em] uppercase">
+            <div className="flex items-center gap-[12px] font-jakarta text-[26px] leading-none font-extrabold tracking-[-0.05em] uppercase">
+              <LogoMark bold className="h-[46px] text-brand" />
               Science Club
             </div>
             <p className="mt-[23px] max-w-[300px] font-jakarta text-[14.1px] leading-[1.42] tracking-[-0.01em] text-[#707070]">

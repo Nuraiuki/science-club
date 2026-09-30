@@ -18,6 +18,10 @@
   --color-accent-hero: #0049ff;
   --color-accent-dark: #3b82f6;
   --color-muted: #626262;
+  /* Индиго из логотипа клуба */
+  --color-brand: #2b2a88;
+  --color-indigo-deep: #1f2152;
+  --color-lilac: #9ea8ff;
 
   --breakpoint-xs: 30rem;
 }

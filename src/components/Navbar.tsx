@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { SITE } from '../config/site'
 import { JoinLink } from './ui/JoinLink'
 import { ScrollProgress } from './ui/ScrollProgress'
+import { LogoMark } from './ui/LogoMark'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -22,8 +23,10 @@ export default function Navbar() {
         <div className="flex h-full items-center px-5 md:px-9">
           <a
             href="#top"
-            className="font-jakarta text-[15.3px] leading-none font-extrabold tracking-[-0.05em] uppercase"
+            aria-label="Science Club, to top"
+            className="flex items-center gap-[7px] font-jakarta text-[15.3px] leading-none font-extrabold tracking-[-0.05em] uppercase"
           >
+            <LogoMark bold className="h-[27px] text-brand" />
             Science Club
           </a>
 
