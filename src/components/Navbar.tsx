@@ -3,6 +3,7 @@ import { SITE } from '../config/site'
 import { JoinLink } from './ui/JoinLink'
 import { ScrollProgress } from './ui/ScrollProgress'
 import { LogoMark } from './ui/LogoMark'
+import { LogoWordmark } from './ui/LogoWordmark'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -24,10 +25,10 @@ export default function Navbar() {
           <a
             href="#top"
             aria-label="Science Club, to top"
-            className="flex items-center gap-[7px] font-jakarta text-[15.3px] leading-none font-extrabold tracking-[-0.05em] uppercase"
+            className="flex items-center gap-[9px]"
           >
-            <LogoMark bold className="h-[27px] text-brand" />
-            Science Club
+            <LogoMark bold className="h-[28px] text-brand" />
+            <LogoWordmark className="h-[37px] text-brand" />
           </a>
 
           <nav className="ml-[23px] hidden items-center gap-[18px] md:flex">
