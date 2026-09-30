@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/plus-jakarta-sans/wght.css';
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/inter/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
+
+/* Токены измерены по скриншотам дизайна. */
+@theme {
+  --font-jakarta: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+  --font-inter: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+
+  --color-paper: #f8f8f6;
+  --color-soft: #fefefe;
+  --color-ink: #030303;
+  --color-night: #030303;
+  --color-accent: #0066ff;
+  --color-accent-hero: #0049ff;
+  --color-accent-dark: #3b82f6;
+  --color-muted: #626262;
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --nav-h: 55px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-jakarta);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Тонкое зерно поверх всей страницы. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+@layer components {
+/* Контейнеры: в дизайне у секций три разные ширины. */
+.wrap-n,
+.wrap-m,
+.wrap-w {
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: 20px;
+}
+.wrap-n {
+  max-width: 960px;
+}
+.wrap-m {
+  max-width: 1088px;
+}
+.wrap-w {
+  max-width: 1344px;
+}
+@media (min-width: 1100px) {
+  .wrap-n,
+  .wrap-m,
+  .wrap-w {
+    padding-inline: 0;
+  }
+}
+@media (min-width: 1440px) {
+  .wrap-w {
+    max-width: 1344px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .wrap-n,
+  .wrap-m,
+  .wrap-w {
+    padding-inline: 40px;
+  }
+}
+
+/* Типографика */
+.display-a {
+  font-family: var(--font-jakarta);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.display-b {
+  font-family: var(--font-inter);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+/* Бегущая строка */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Медленно дрейфующее свечение в финальном блоке */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(-5%, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(7%, -8%, 0) scale(1.18);
+  }
+}
+.drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+/* Плавающие плашки в hero */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--r, 0deg));
+  }
+}
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+/* Скрытый скроллбар для горизонтальных лент */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track,
+  .floaty,
+  .drift {
+    animation: none;
+  }
+}
