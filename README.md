@@ -37,7 +37,7 @@ npm run preview  # проверить сборку локально
 
 Лежат в `public/brand/`: `logo-mark.png` (знак, белый на прозрачном), `logo-mark-bold.png` (утолщённая линия для мелких размеров),
 `logo-square.png` (оригинал на индиго для соцсетей). Цвет знака задаётся в коде компонентом `LogoMark`
-(`text-brand` на светлом, `text-white` на тёмном), индиго бренда: `--color-brand` в `src/index.css`.
+(`text-brand` на светлом, `text-white` на тёмном), индиго бренда: `--color-brand` в `src/index.css`. Акцент сайта (`--color-accent`, `--color-accent-hero`, `--color-accent-dark`) тоже в индиго логотипа: чтобы сделать темнее или фиолетовее, меняй эти три значения.
 Иконки вкладки: `public/favicon.png`, `public/apple-touch-icon.png`. Превью в соцсетях: `public/og-image.png`.
 
 ## Деплой на Vercel

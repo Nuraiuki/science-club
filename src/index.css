@@ -14,9 +14,9 @@
   --color-soft: #fefefe;
   --color-ink: #030303;
   --color-night: #030303;
-  --color-accent: #0066ff;
-  --color-accent-hero: #0049ff;
-  --color-accent-dark: #3b82f6;
+  --color-accent: #3a3cc2; /* индиго бренда, ярче логотипа, чтобы читаться рядом с чёрным */
+  --color-accent-hero: #3636c0;
+  --color-accent-dark: #8f94ff; /* тот же акцент на чёрном фоне */
   --color-muted: #626262;
   /* Индиго из логотипа клуба */
   --color-brand: #2a2e6a;
