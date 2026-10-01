@@ -174,6 +174,20 @@ export const PROJECTS: Project[] = [
     href: 'https://hireon-website.onrender.com/',
     image: '/images/project-hireon.webp',
   },
+  {
+    name: 'Love in Science',
+    category: 'Web / Social',
+    text: "Website for sending love messages easily, built for Valentine's Day.",
+    team: 4,
+    image: '/images/project-love.webp',
+  },
+  {
+    name: 'March 8 Bot',
+    category: 'Telegram / Bot',
+    text: 'Telegram bot for sending personalised greeting cards for March 8.',
+    team: 4,
+    image: '/images/project-march8.webp',
+  },
 ]
 
 export const COMMUNITY_TILES = [
@@ -189,7 +203,9 @@ export const MOMENTS = [
   { src: '/images/moment-audience-1.webp', ratio: 1.688, alt: 'Students listening at a Science Club talk' },
   { src: '/images/moment-presenter.webp', ratio: 0.674, alt: 'Workshop: Anatomy of the Web' },
   { src: '/images/moment-winners.webp', ratio: 0.75, alt: 'Science Club team with the HackNU 3rd place prize' },
+  { src: '/images/moment-valentine-team.webp', ratio: 1.278, alt: "Science Club team presenting the Valentine's Day project" },
   { src: '/images/moment-panel.webp', ratio: 1.096, alt: 'Students at a Science Club session' },
+  { src: '/images/moment-hallway-team.webp', ratio: 0.757, alt: 'Students working on laptops together' },
   { src: '/images/moment-audience-2.webp', ratio: 1.78, alt: 'Q&A at a Science Club meetup' },
 ]
 

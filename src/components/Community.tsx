@@ -21,7 +21,7 @@ export default function Community() {
         </Reveal>
 
         {/* Десктоп: бенто-сетка. Мобильный: горизонтальная лента. */}
-        <div className="no-scrollbar -mx-5 mt-[54px] flex snap-x snap-mandatory gap-[13px] overflow-x-auto px-5 md:mx-0 md:grid md:h-[449px] md:grid-cols-[474fr_231fr_231fr] md:grid-rows-2 md:overflow-visible md:px-0">
+        <div className="no-scrollbar -mx-5 mt-[54px] flex scroll-px-5 snap-x snap-mandatory gap-[13px] overflow-x-auto px-5 md:scroll-px-0 md:mx-0 md:grid md:h-[449px] md:grid-cols-[474fr_231fr_231fr] md:grid-rows-2 md:overflow-visible md:px-0">
           <Tile
             i={0}
             tile={big}
