@@ -62,18 +62,37 @@ export default function WallOfFame() {
             <Reveal
               key={a.name}
               delay={(i % 3) * 0.08}
-              className={`group relative flex h-[146px] flex-col justify-between px-[27px] pt-[29px] pb-[27px] transition-colors duration-300 hover:bg-white ${
-                a.wide ? 'sm:col-span-2 lg:col-span-3' : ''
-              }`}
+              className={`group relative flex h-[146px] flex-col justify-between px-[27px] pt-[29px] pb-[27px] transition-colors duration-300 ${
+                a.image ? 'overflow-hidden hover:text-white' : 'hover:bg-white'
+              } ${a.wide ? 'sm:col-span-2 lg:col-span-3' : ''}`}
             >
-              <div className="font-jakarta text-[26.5px] leading-none font-bold tracking-[-0.03em]">
+              {/* Фото проявляется при наведении (на устройствах с hover). */}
+              {a.image && (
+                <>
+                  <img
+                    src={a.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="pointer-events-none absolute inset-0 h-full w-full scale-[1.06] object-cover opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-ink/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </>
+              )}
+              <div className="relative font-jakarta text-[26.5px] leading-none font-bold tracking-[-0.03em]">
                 {a.name}
               </div>
-              <div className={`flex items-baseline ${a.wide ? 'gap-[16px]' : 'justify-between'}`}>
+              <div className={`relative flex items-baseline ${a.wide ? 'gap-[16px]' : 'justify-between'}`}>
                 <span className="font-jakarta text-[32px] leading-none font-extrabold tracking-[-0.03em] transition-transform duration-300 group-hover:translate-x-[3px]">
                   <CountValue value={a.value} />
                 </span>
-                <span className="mono text-[10px] tracking-[0.12em] text-[#7d7d7d]">{a.caption}</span>
+                <span
+                  className={`mono text-[10px] tracking-[0.12em] text-[#7d7d7d] transition-colors duration-300 ${
+                    a.image ? 'group-hover:text-white/75' : ''
+                  }`}
+                >
+                  {a.caption}
+                </span>
               </div>
               <DrawLine delay={0.15 + (i % 3) * 0.1} className="bottom-0 left-0" />
             </Reveal>

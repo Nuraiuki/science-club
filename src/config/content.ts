@@ -123,14 +123,10 @@ export type AmplifyItem = {
 }
 
 export const AMPLIFY_ITEMS: AmplifyItem[] = [
-  {
-    label: 'Content',
-    tile: 'Content Squad',
-    media: { video: '/videos/content-reel.mp4', poster: '/videos/content-reel.webp' },
-  },
-  { label: 'Social Media', tile: 'Social Squad' },
-  { label: 'PR & Promotion', tile: 'PR Squad' },
-  { label: 'Storytelling', tile: 'Story Squad' },
+  { label: 'Content', tile: 'Content Squad', media: { image: '/images/amp-content.webp' } },
+  { label: 'Social Media', tile: 'Social Squad', media: { image: '/images/amp-social.webp' } },
+  { label: 'PR & Promotion', tile: 'PR Squad', media: { image: '/images/amp-pr.webp' } },
+  { label: 'Storytelling', tile: 'Story Squad', media: { image: '/images/amp-story.webp' } },
 ]
 
 export const AMPLIFY_TAGS = ['Design', 'Content', 'Events', 'Partnerships']
@@ -150,7 +146,7 @@ export const PROJECTS = [
     text: 'AI-powered solar panel inspection using drone imagery for local energy plants.',
     team: 4,
     href: '#',
-    image: '',
+    image: '/images/project-energydrones.webp',
   },
   {
     name: 'Campus Quest',
@@ -158,7 +154,7 @@ export const PROJECTS = [
     text: 'Interactive QR-based game played by 200+ students during Orientation week.',
     team: 6,
     href: '#',
-    image: '',
+    image: '/images/project-campusquest.webp',
   },
   {
     name: 'Smart Registrar',
@@ -172,7 +168,7 @@ export const PROJECTS = [
 
 export const COMMUNITY_TILES = [
   { label: 'Main Event Space', bg: '#282a2e', text: '#5f6066', image: '/images/community-main.webp', pos: '50% 40%' },
-  { label: 'Late Night Build', bg: '#414248', text: '#9a9aa2', image: '/images/community-laptop.webp', pos: '50% 60%' },
+  { label: 'Late Night Build', bg: '#414248', text: '#9a9aa2', image: '/images/community-latenight.webp', pos: '50% 45%' },
   { label: 'Pitch Practice', bg: '#53545d', text: '#a8a9b0', image: '/images/community-speaker.webp', pos: '40% 50%' },
   { label: 'Workshop Log', bg: '#72737b', text: '#b9bac1', image: '/images/community-git.webp', pos: '25% 50%' },
   { label: 'Social Mixer', bg: '#a0a1aa', text: '#7b7c85', image: '/images/community-hacknu.webp', pos: '50% 50%' },
@@ -182,18 +178,26 @@ export const COMMUNITY_TILES = [
 export const MOMENTS = [
   { src: '/images/moment-audience-1.webp', ratio: 1.688, alt: 'Students listening at a Science Club talk' },
   { src: '/images/moment-presenter.webp', ratio: 0.674, alt: 'Workshop: Anatomy of the Web' },
+  { src: '/images/moment-winners.webp', ratio: 0.75, alt: 'Science Club team with the HackNU 3rd place prize' },
   { src: '/images/moment-panel.webp', ratio: 1.096, alt: 'Students at a Science Club session' },
   { src: '/images/moment-audience-2.webp', ratio: 1.78, alt: 'Q&A at a Science Club meetup' },
 ]
 
 /** wide: ячейка на всю ширину строки (для 7-го элемента). */
-export const ACHIEVEMENTS: { name: string; value: string; caption: string; wide?: boolean }[] = [
-  { name: 'HackNU', value: '3rd', caption: 'Place' },
+export const ACHIEVEMENTS: {
+  name: string
+  value: string
+  caption: string
+  wide?: boolean
+  /** Фото проявляется при наведении на ячейку. */
+  image?: string
+}[] = [
+  { name: 'HackNU', value: '3rd', caption: 'Place', image: '/images/fame-hacknu.webp' },
   { name: 'ShAI Pro', value: 'TOP', caption: 'Finalists' },
   { name: 'ICPC', value: 'Q-FINALS', caption: 'Regional' },
   { name: 'WomenHack', value: '7', caption: 'Teams' },
   { name: 'InnovateX', value: '3', caption: 'Teams' },
-  { name: 'AI Sana Leaders', value: 'BEST', caption: 'AI Project' },
+  { name: 'AI Sana Leaders', value: 'BEST', caption: 'AI Project', image: '/images/fame-aisana.webp' },
   { name: 'Peer-to-Peer', value: '6', caption: 'Workshops', wide: true },
 ]
 
