@@ -139,13 +139,25 @@ export const JOURNEY = [
   { n: '05', title: 'Grow', text: 'Build your portfolio and scale your own startup.' },
 ]
 
-export const PROJECTS = [
+export type Project = {
+  name: string
+  category: string
+  text: string
+  /** Размер команды. Если не указан, строка с командой не показывается. */
+  team?: number
+  /** Ссылка на проект. Если не указана, ссылки на карточке нет. */
+  href?: string
+  image?: string
+  /** object-position для превью */
+  pos?: string
+}
+
+export const PROJECTS: Project[] = [
   {
     name: 'EnergyDronesAI',
     category: 'AI / Hardware',
     text: 'AI-powered solar panel inspection using drone imagery for local energy plants.',
     team: 4,
-    href: '#',
     image: '/images/project-energydrones.webp',
   },
   {
@@ -153,16 +165,14 @@ export const PROJECTS = [
     category: 'Web / Experience',
     text: 'Interactive QR-based game played by 200+ students during Orientation week.',
     team: 6,
-    href: '#',
     image: '/images/project-campusquest.webp',
   },
   {
-    name: 'Smart Registrar',
-    category: 'Soft / Tools',
-    text: 'Automation tool for managing student club attendance and reward points.',
-    team: 2,
-    href: '#',
-    image: '',
+    name: 'HireOn',
+    category: 'AI / HR Tech',
+    text: 'B2B recruiting platform with AI screening and multi-platform talent search for HR teams.',
+    href: 'https://hireon-website.onrender.com/',
+    image: '/images/project-hireon.webp',
   },
 ]
 

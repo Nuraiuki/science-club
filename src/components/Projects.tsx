@@ -23,6 +23,7 @@ export default function Projects() {
               <Placeholder
                 src={p.image}
                 alt={p.name}
+                position={p.pos}
                 className="flex aspect-[426/239] items-center justify-center rounded-[17px] border border-black/[0.06] bg-[#f3f3f3] transition-transform duration-500 group-hover:-translate-y-[6px]"
               >
                 {!p.image && (
@@ -41,19 +42,27 @@ export default function Projects() {
               <p className="mt-[14px] min-h-[40px] font-inter text-[13.3px] leading-[1.5] text-[#626262]">
                 {p.text}
               </p>
-              <div className="mt-[14px] flex items-center justify-between">
-                <span className="mono text-[10px] tracking-[0.05em]">Team: {p.team} Students</span>
-                <a
-                  href={p.href}
-                  {...linkProps(p.href)}
-                  className="group/link font-inter text-[14.5px] font-bold underline decoration-[1.5px] underline-offset-[3px]"
-                >
-                  View Project{' '}
-                  <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-[5px]">
-                    →
-                  </span>
-                </a>
-              </div>
+              {(p.team || p.href) && (
+                <div className="mt-[14px] flex min-h-[19px] items-center justify-between">
+                  {p.team ? (
+                    <span className="mono text-[10px] tracking-[0.05em]">Team: {p.team} Students</span>
+                  ) : (
+                    <span />
+                  )}
+                  {p.href && (
+                    <a
+                      href={p.href}
+                      {...linkProps(p.href)}
+                      className="group/link font-inter text-[14.5px] font-bold underline decoration-[1.5px] underline-offset-[3px]"
+                    >
+                      View Project{' '}
+                      <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-[5px]">
+                        →
+                      </span>
+                    </a>
+                  )}
+                </div>
+              )}
             </Reveal>
           ))}
         </div>

@@ -9,11 +9,10 @@ export const SITE = {
     'https://docs.google.com/forms/d/e/1FAIpQLSdpOO4eTecJUV28irowdOgNFSU76nitlZrJ3H9blZdPkBZM4Q/viewform',
 
   // Пустая строка = ссылки нет, кружок в футере не показывается.
-  // Instagram, LinkedIn, email добавим, когда будут адреса.
   socials: {
-    instagram: '',
+    instagram: 'https://www.instagram.com/science_club_covuni/',
     telegram: 'https://t.me/+2st98auIrFhhMWMy',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/company/science-club-cuk/',
     email: '',
   },
 
