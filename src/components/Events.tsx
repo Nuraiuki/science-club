@@ -49,18 +49,25 @@ function Meta({ label, children }: { label: string; children: React.ReactNode })
 
 function EventCard({ e, now }: { e: EventItem; now: number }) {
   const upcoming = isUpcoming(e, now)
+  const hasPoster = Boolean(e.poster)
   return (
     <Reveal>
-      <article className="group grid border-[1.5px] border-ink bg-white lg:grid-cols-[minmax(0,400px)_1fr]">
-        <div className="relative border-b-[1.5px] border-ink lg:border-r-[1.5px] lg:border-b-0">
-          <Placeholder
-            src={e.poster}
-            alt={`${e.title} poster`}
-            className="aspect-[4/5] w-full bg-[#2a3fdc] [&_img]:duration-[900ms]"
-          />
-        </div>
+      <article
+        className={`group grid border-[1.5px] border-ink bg-white ${
+          hasPoster ? 'lg:grid-cols-[minmax(0,400px)_1fr]' : ''
+        }`}
+      >
+        {hasPoster && (
+          <div className="relative border-b-[1.5px] border-ink lg:border-r-[1.5px] lg:border-b-0">
+            <Placeholder
+              src={e.poster}
+              alt={`${e.title} poster`}
+              className="aspect-[4/5] w-full bg-[#2a3fdc] [&_img]:duration-[900ms]"
+            />
+          </div>
+        )}
 
-        <div className="flex flex-col p-[24px] sm:p-[32px] lg:px-[44px] lg:py-[38px]">
+        <div className="flex flex-col p-[24px] sm:p-[36px] lg:px-[52px] lg:py-[46px]">
           <div className="flex flex-wrap items-center gap-[10px]">
             <span className="mono rounded-full border-[1.5px] border-ink px-[12px] py-[6px] text-[10px] leading-none tracking-[0.08em]">
               {e.tag}
@@ -75,17 +82,27 @@ function EventCard({ e, now }: { e: EventItem; now: number }) {
             </span>
           </div>
 
-          <div className="mt-[22px] flex flex-wrap items-end gap-x-[28px] gap-y-[14px]">
-            <h3 className="display-b text-[clamp(40px,9vw,64px)] leading-[0.92]">
+          <div className="mt-[26px] flex flex-col gap-[22px] lg:flex-row lg:items-end lg:justify-between lg:gap-[40px]">
+            <h3
+              className={`display-b leading-[0.92] ${
+                hasPoster ? 'text-[clamp(40px,9vw,64px)]' : 'text-[clamp(46px,11vw,92px)]'
+              }`}
+            >
               {(e.titleLines ?? [e.title]).map((line) => (
                 <span key={line} className="block">
                   {line}
                 </span>
               ))}
             </h3>
-            <div className="flex items-end gap-[10px] pb-[4px] leading-none">
-              <span className="display-b text-[clamp(48px,10vw,76px)] leading-[0.82] text-accent">{e.day}</span>
-              <span className="mono pb-[2px] text-[13px] font-bold tracking-[0.12em]">
+            <div className="flex items-end gap-[12px] leading-none lg:pb-[6px]">
+              <span
+                className={`display-b leading-[0.82] text-accent ${
+                  hasPoster ? 'text-[clamp(48px,10vw,76px)]' : 'text-[clamp(56px,13vw,110px)]'
+                }`}
+              >
+                {e.day}
+              </span>
+              <span className="mono pb-[3px] text-[14px] font-bold tracking-[0.12em]">
                 {e.month}
                 <span className="block text-[10px] font-medium tracking-[0.14em] text-[#787876]">
                   {e.weekday}
@@ -94,7 +111,7 @@ function EventCard({ e, now }: { e: EventItem; now: number }) {
             </div>
           </div>
 
-          <div className="mt-[28px] grid gap-x-[32px] gap-y-[20px] border-t border-ink/15 pt-[24px] sm:grid-cols-3">
+          <div className="mt-[32px] grid gap-x-[32px] gap-y-[20px] border-t border-ink/15 pt-[26px] sm:grid-cols-3">
             <Meta label="Time">
               {e.time}
               <span className="block text-[13px] font-medium text-[#626262]">{e.timeNote}</span>
@@ -112,7 +129,7 @@ function EventCard({ e, now }: { e: EventItem; now: number }) {
             </Meta>
           </div>
 
-          <div className="mt-[30px] flex flex-wrap items-center gap-x-[28px] gap-y-[20px] lg:mt-auto lg:pt-[30px]">
+          <div className="mt-[32px] flex flex-wrap items-center gap-x-[28px] gap-y-[20px] lg:mt-auto lg:pt-[34px]">
             {upcoming ? (
               <>
                 <JoinLink variant="dark" href={e.registerUrl} className="h-[54px] px-[34px] text-[15px]">
