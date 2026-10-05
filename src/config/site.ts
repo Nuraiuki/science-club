@@ -20,6 +20,7 @@ export const SITE = {
     { label: 'About', href: '#about' },
     { label: 'What We Do', href: '#what-we-do' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Events', href: '#events' },
     { label: 'Community', href: '#community' },
   ],
 } as const

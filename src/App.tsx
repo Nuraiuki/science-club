@@ -6,6 +6,8 @@ import WhatWeDo from './components/WhatWeDo'
 import Amplification from './components/Amplification'
 import Journey from './components/Journey'
 import Projects from './components/Projects'
+import Events from './components/Events'
+import AnnouncementBar from './components/AnnouncementBar'
 import Community from './components/Community'
 import WallOfFame from './components/WallOfFame'
 import WhyJoin from './components/WhyJoin'
@@ -17,6 +19,7 @@ export default function App() {
   return (
     <>
       <CursorRing />
+      <AnnouncementBar />
       <Navbar />
       <main>
         <Hero />
@@ -26,6 +29,7 @@ export default function App() {
         <Amplification />
         <Journey />
         <Projects />
+        <Events />
         <Community />
         <WallOfFame />
         <WhyJoin />
