@@ -1,5 +1,3 @@
-import { SITE } from './site'
-
 export type EventItem = {
   id: string
   /** Серия или формат: показывается тегом над названием. */
@@ -45,9 +43,7 @@ export const EVENTS: EventItem[] = [
     placeNote: 'Room TBA',
     speakers: ['Diyar Amanzholov', 'Damira Bukeyeva'],
     teaser: 'nFACTORIAL ALUMNI TALK: FROM IDEA TO SALES',
-    // TODO: заменить на ссылку регистрации именно на это мероприятие.
-    // Пока кнопка ведёт на общую форму клуба.
-    registerUrl: SITE.formUrl,
+    registerUrl: 'https://forms.gle/bypaW5fE4FtgHjaT9',
   },
 ]
 
