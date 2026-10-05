@@ -24,6 +24,9 @@ export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(() => readDismissed())
 
   const visible = Boolean(event) && dismissed !== event?.id
+  const colon = event?.teaser.indexOf(': ') ?? -1
+  const lead = event ? (colon > -1 ? event.teaser.slice(0, colon) : event.teaser) : ''
+  const rest = event && colon > -1 ? event.teaser.slice(colon + 2) : ''
 
   const close = () => {
     if (!event) return
@@ -53,15 +56,23 @@ export default function AnnouncementBar() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lilac opacity-70" />
               <span className="relative inline-flex h-[8px] w-[8px] rounded-full bg-lilac" />
             </span>
-            <a href="#events" className="group flex flex-wrap items-center justify-center gap-x-[10px] gap-y-0">
-              <span className="font-jakarta text-[12.5px] leading-[1.35] font-bold tracking-[-0.01em] uppercase sm:text-[13px]">
-                {event.teaser}
-              </span>
-              <span className="mono text-[10.5px] leading-[1.35] tracking-[0.08em] text-lilac">
-                {event.day} {event.month}, {event.time}
-              </span>
-              <span className="mono text-[10.5px] leading-[1.35] tracking-[0.08em] text-white sm:underline sm:decoration-white/40 sm:underline-offset-[3px] sm:transition-colors sm:group-hover:decoration-white">
-                <span className="hidden sm:inline">Details </span>→
+            <a href="#events" className="group block text-center">
+              <span className="block font-jakarta text-[12px] leading-[1.4] font-bold tracking-[-0.01em] sm:inline sm:text-[13px]">
+                {lead}
+                {rest ? ':' : ''}
+              </span>{' '}
+              <span className="inline-block whitespace-nowrap leading-[1.4]">
+                {rest && (
+                  <span className="font-jakarta text-[12px] font-bold tracking-[-0.01em] sm:text-[13px]">{rest}</span>
+                )}
+                {' '}
+                <span className="mono ml-[10px] text-[10.5px] tracking-[0.08em] text-lilac">
+                  {event.day} {event.month}, {event.time}
+                </span>
+                {' '}
+                <span className="mono ml-[10px] text-[10.5px] tracking-[0.08em] text-white sm:underline sm:decoration-white/40 sm:underline-offset-[3px] sm:transition-colors sm:group-hover:decoration-white">
+                  <span className="hidden sm:inline">Details </span>→
+                </span>
               </span>
             </a>
           </div>

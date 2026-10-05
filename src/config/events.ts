@@ -19,7 +19,7 @@ export type EventItem = {
   speakers: string[]
   /** Необязательный постер: если задан, карточка делится на две колонки (постер слева). */
   poster?: string
-  /** Короткий текст для плашки над шапкой. */
+  /** Короткий текст для плашки над шапкой (регистр как в тексте, плашка его не меняет). */
   teaser: string
   /** Ссылка на регистрацию. */
   registerUrl: string
@@ -44,7 +44,7 @@ export const EVENTS: EventItem[] = [
     place: 'Coventry University Kazakhstan',
     placeNote: 'Room TBA',
     speakers: ['Diyar Amanzholov', 'Damira Bukeyeva'],
-    teaser: 'Alumni talk: From Idea to Sales',
+    teaser: 'nFACTORIAL ALUMNI TALK: FROM IDEA TO SALES',
     // TODO: заменить на ссылку регистрации именно на это мероприятие.
     // Пока кнопка ведёт на общую форму клуба.
     registerUrl: SITE.formUrl,
