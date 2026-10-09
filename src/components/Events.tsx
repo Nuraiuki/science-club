@@ -111,6 +111,14 @@ function EventCard({ e, now }: { e: EventItem; now: number }) {
             </div>
           </div>
 
+          {e.about && (
+            <ul className="mt-[24px] flex flex-col gap-[6px] font-jakarta text-[15px] leading-[1.35] font-medium tracking-[-0.01em] text-[#626262] sm:text-[16px]">
+              {e.about.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          )}
+
           <div className="mt-[32px] grid gap-x-[32px] gap-y-[20px] border-t border-ink/15 pt-[26px] sm:grid-cols-3">
             <Meta label="Time">
               {e.time}
@@ -132,9 +140,11 @@ function EventCard({ e, now }: { e: EventItem; now: number }) {
           <div className="mt-[32px] flex flex-wrap items-center gap-x-[28px] gap-y-[20px] lg:mt-auto lg:pt-[34px]">
             {upcoming ? (
               <>
-                <JoinLink variant="dark" href={e.registerUrl} className="h-[54px] px-[34px] text-[15px]">
-                  Register →
-                </JoinLink>
+                {e.registerUrl && (
+                  <JoinLink variant="dark" href={e.registerUrl} className="h-[54px] px-[34px] text-[15px]">
+                    Register →
+                  </JoinLink>
+                )}
                 <Countdown target={startMs(e)} />
               </>
             ) : (

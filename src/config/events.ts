@@ -15,12 +15,14 @@ export type EventItem = {
   place: string
   placeNote?: string
   speakers: string[]
+  /** Регалии спикера: короткие строки под заголовком карточки (необязательно). */
+  about?: string[]
   /** Необязательный постер: если задан, карточка делится на две колонки (постер слева). */
   poster?: string
   /** Короткий текст для плашки над шапкой (регистр как в тексте, плашка его не меняет). */
   teaser: string
-  /** Ссылка на регистрацию. */
-  registerUrl: string
+  /** Ссылка на регистрацию. Пока её нет, кнопка Register не показывается. */
+  registerUrl?: string
 }
 
 /**
@@ -44,6 +46,27 @@ export const EVENTS: EventItem[] = [
     speakers: ['Diyar Amanzholov', 'Damira Bukeyeva'],
     teaser: 'nFACTORIAL ALUMNI TALK: FROM IDEA TO SALES',
     registerUrl: 'https://forms.gle/bypaW5fE4FtgHjaT9',
+  },
+  {
+    id: 'guest-talk-alpamys-sarzhigitov',
+    tag: 'Guest Talk',
+    title: 'Guest Talk with Alpamys Sarzhigitov',
+    titleLines: ['Guest talk', 'with Alpamys.'],
+    start: '2026-10-12T18:00:00+05:00',
+    day: '12',
+    month: 'Oct',
+    weekday: 'Monday',
+    time: '18:00',
+    timeNote: 'Astana time',
+    place: 'Coventry University Kazakhstan',
+    placeNote: 'Room 204, Astana',
+    speakers: ['Alpamys Sarzhigitov'],
+    about: [
+      'Youngest Antler Berlin Founder from Central Asia',
+      'Youngest Engineer at Higgsfield AI',
+      'Startup Builder • AI Engineer • Entrepreneur',
+    ],
+    teaser: 'GUEST TALK: ALPAMYS SARZHIGITOV',
   },
 ]
 
