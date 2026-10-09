@@ -67,6 +67,8 @@ export const EVENTS: EventItem[] = [
       'Startup Builder • AI Engineer • Entrepreneur',
     ],
     teaser: 'GUEST TALK: ALPAMYS SARZHIGITOV',
+    registerUrl:
+      'https://docs.google.com/forms/d/e/1FAIpQLScAfRR0G4JD07uqH7WoCZ7O_kVmM5jzR0d_DThKsyefGRMK7A/viewform',
   },
 ]
 
